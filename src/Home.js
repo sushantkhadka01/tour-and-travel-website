@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header'; 
 import './Home.css';
-import floranceImage from './assets/florance.jpg';
+import florenceImage from './assets/florence.jpg';
 import parisImage from './assets/paris.jpg';
 import tokyoImage from './assets/tokyo.jpg';
 import newYorkImage from './assets/newYork.jpg';
@@ -12,11 +12,10 @@ const Home = () => {
     <div className="home-page">
       <Header />
       <main className="main-content">
-        <section className="hero" style={{ backgroundImage: `url(${floranceImage})` }}>
+        <section className="hero" style={{ backgroundImage: `url(${florenceImage})` }}>
           <div className="hero-overlay">
             <h1 className="hero-title">Discover Your Next Adventure</h1>
             <p className="hero-subtitle">Explore the world with our tailored tours and expert guides.</p>
-           
           </div>
         </section>
         <section className="features">
