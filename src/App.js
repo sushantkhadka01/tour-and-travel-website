@@ -11,6 +11,7 @@ import Domestic from './Domestic';
 import AdventureTrip from './AdventureTrip';
 import CityTours from './CityTours';
 import BookingForm from './BookingForm';
+import Contact from './Contact'; // Import the Contact component
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="city-tours" element={<CityTours />} />
           </Route>
           <Route path="/booking-form/:tripName" element={<BookingForm />} />
+          <Route path="/contact" element={<Contact />} /> 
         </Routes>
       </div>
     </Router>
