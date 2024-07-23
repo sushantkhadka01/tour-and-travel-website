@@ -57,6 +57,7 @@ const Home = () => {
             </div>
           </div>
         </section>
+        
       </main>
       <footer className="footer">
         <p>&copy; 2024 My Travel and Tour Website. All rights reserved by Siuuu shant Khadka.</p>
