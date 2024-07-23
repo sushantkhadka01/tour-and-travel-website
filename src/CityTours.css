@@ -1,0 +1,53 @@
+/* Container Styling */
+.tour-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+  }
+  
+  /* City Container Styling */
+  .city {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .city:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Image Styling */
+  .city-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 3px solid #007bff;
+  }
+  
+  /* Text Styling */
+  .city h3 {
+    font-size: 1.25rem;
+    color: #333;
+    margin: 0.5rem;
+  }
+  
+  .city p {
+    font-size: 0.875rem;
+    color: #666;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    .tour-details {
+      grid-template-columns: 1fr;
+    }
+  }
+  

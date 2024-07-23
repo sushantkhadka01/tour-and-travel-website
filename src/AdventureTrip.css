@@ -1,0 +1,85 @@
+/* Container Styling */
+.adventure-trip {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+}
+
+.adventure-trip h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.adventure-trip ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* Trip Item Styling */
+.trip-item {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trip-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Styling */
+.trip-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 3px solid #007bff;
+}
+
+/* Text Styling */
+.trip-item h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 1rem;
+}
+
+.trip-item p {
+  font-size: 1rem;
+  color: #666;
+  padding: 0 1rem 1rem;
+  text-align: center;
+}
+
+/* Button Styling */
+.book-trip-button {
+  display: block;
+  width: 80%;
+  margin: 1rem auto;
+  padding: 0.75rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.book-trip-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .adventure-trip ul {
+    grid-template-columns: 1fr;
+  }
+}
