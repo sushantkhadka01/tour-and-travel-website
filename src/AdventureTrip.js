@@ -1,9 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import everestImage from './assets/everest-base-camp.jpg';
 import annapurnaImage from './assets/annapurna-circuit.jpg';
 import langtangImage from './assets/langtang-valley.jpg';
 import manasluImage from './assets/manaslu-circuit.jpg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './AdventureTrip.css';
 
 const AdventureTrip = () => {
@@ -41,24 +43,28 @@ const AdventureTrip = () => {
   };
 
   return (
-    <div className="adventure-trip">
-      <h1>Adventure Trips in Nepal</h1>
-      <ul>
+    <Container className="mt-5">
+      <h1 className="mb-4 text-center">Adventure Trips in Nepal</h1>
+      <Row>
         {trips.map((trip, index) => (
-          <li key={index} className="trip-item">
-            <img src={trip.image} alt={trip.title} className="trip-image" />
-            <h2>{trip.title}</h2>
-            <p>{trip.description}</p>
-            <button 
-              className="book-trip-button" 
-              onClick={() => handleBookTripClick(trip.route)}
-            >
-              Book Trip
-            </button>
-          </li>
+          <Col md={6} lg={4} key={index} className="mb-4">
+            <Card className="trip-card">
+              <Card.Img variant="top" src={trip.image} alt={trip.title} className="trip-image" />
+              <Card.Body>
+                <Card.Title>{trip.title}</Card.Title>
+                <Card.Text>{trip.description}</Card.Text>
+                <Button 
+                  variant="primary" 
+                  onClick={() => handleBookTripClick(trip.route)}
+                >
+                  Book Trip
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
-      </ul>
-    </div>
+      </Row>
+    </Container>
   );
 };
 
