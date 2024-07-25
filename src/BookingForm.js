@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './BookingForm.css';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import Header from './Header';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Booking = () => {
   const { tripName } = useParams();
   const [tripDetails, setTripDetails] = useState({
-    numberOfTravelers: 1,
     priceOption: '1000',
     name: '',
     email: '',
@@ -16,16 +16,10 @@ const Booking = () => {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
-  const handleTripDetailChange = (event) => {
-    const { name, value } = event.target;
-    setTripDetails({
-      ...tripDetails,
-      [name]: value,
-    });
-    setErrors({
-      ...errors,
-      [name]: ''
-    });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setTripDetails((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: '' }));
   };
 
   const validateForm = () => {
@@ -41,8 +35,8 @@ const Booking = () => {
     return newErrors;
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const formErrors = validateForm();
     if (Object.keys(formErrors).length === 0) {
       setSubmitted(true);
@@ -53,100 +47,55 @@ const Booking = () => {
   };
 
   return (
-    <div className="booking-form">
+    <>
       <Header />
-      <div className="form-content">
+      <Container className="mt-5">
         <h2>Book Your Trip: {tripName.replace(/-/g, ' ')}</h2>
         {submitted ? (
-          <div className="success-message">Thank you for your booking!</div>
+          <Alert variant="success" className="mt-3">Thank you for your booking!</Alert>
         ) : (
-          <form onSubmit={handleSubmit}>
-            <div className="form-section trip-details">
-              <h3>Trip Details</h3>
-              <label>
-                Number of Travelers:
-                <input
-                  type="number"
-                  name="numberOfTravelers"
-                  value={tripDetails.numberOfTravelers}
-                  min="1"
-                  onChange={handleTripDetailChange}
-                  required
-                />
-              </label>
-              <br />
-              <label>
-                Select Price Option:
-                <select
+          <Form onSubmit={handleSubmit}>
+            {[
+              { label: 'Name:', type: 'text', name: 'name' },
+              { label: 'Email:', type: 'email', name: 'email' },
+              { label: 'Phone:', type: 'tel', name: 'phone' },
+              { label: 'Address:', type: 'text', name: 'address' }
+            ].map(({ label, type, name }) => (
+              <Form.Group as={Row} className="mb-3" key={name}>
+                <Form.Label column sm={3}>{label}</Form.Label>
+                <Col sm={9}>
+                  <Form.Control
+                    type={type}
+                    name={name}
+                    value={tripDetails[name]}
+                    onChange={handleChange}
+                    required
+                  />
+                  {errors[name] && <span className="text-danger">{errors[name]}</span>}
+                </Col>
+              </Form.Group>
+            ))}
+            <Form.Group as={Row} className="mb-3">
+              <Form.Label column sm={3}>Select Price Option:</Form.Label>
+              <Col sm={9}>
+                <Form.Select
                   name="priceOption"
                   value={tripDetails.priceOption}
-                  onChange={handleTripDetailChange}
+                  onChange={handleChange}
                   required
                 >
-                  <option value="1000"> 8 days- US$1000</option>
-                  <option value="1250"> 12 days- US$1250</option>
-                  <option value="1300"> 14 days- US$1300</option>
-                  <option value="1500"> 16 days- US$1500</option>
-                </select>
-              </label>
-            </div>
-            <br />
-            <div className="form-section personal-information">
-              <h3>Personal Information</h3>
-              <label>
-                Name:
-                <input
-                  type="text"
-                  name="name"
-                  value={tripDetails.name}
-                  onChange={handleTripDetailChange}
-                  required
-                />
-                {errors.name && <span className="error">{errors.name}</span>}
-              </label>
-              <br />
-              <label>
-                Email:
-                <input
-                  type="email"
-                  name="email"
-                  value={tripDetails.email}
-                  onChange={handleTripDetailChange}
-                  required
-                />
-                {errors.email && <span className="error">{errors.email}</span>}
-              </label>
-              <br />
-              <label>
-                Phone:
-                <input
-                  type="tel"
-                  name="phone"
-                  value={tripDetails.phone}
-                  onChange={handleTripDetailChange}
-                  required
-                />
-                {errors.phone && <span className="error">{errors.phone}</span>}
-              </label>
-              <br />
-              <label>
-                Address:
-                <input
-                  type="text"
-                  name="address"
-                  value={tripDetails.address}
-                  onChange={handleTripDetailChange}
-                  required
-                />
-                {errors.address && <span className="error">{errors.address}</span>}
-              </label>
-              <br />
-              <button type="submit" className="submit-button">Submit Booking</button>
-            </div>
-          </form>
+                  {['8 days - US$1000', '12 days - US$1250', '14 days - US$1300', '16 days - US$1500']
+                    .map((option, index) => (
+                      <option key={index} value={option.split(' ')[3].slice(1)}>{option}</option>
+                    ))}
+                </Form.Select>
+              </Col>
+            </Form.Group>
+            <Button type="submit" className="mt-3">Submit Booking</Button>
+          </Form>
         )}
-      </div>
-    </div>
+      </Container>
+    </>
   );
 };
 
