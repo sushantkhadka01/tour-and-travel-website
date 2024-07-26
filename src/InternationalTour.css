@@ -1,0 +1,40 @@
+.international-tour {
+    background-color: #f8f9fa;
+    padding-bottom: 50px;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  .card-img-top.equal-image {
+    height: 200px; 
+    object-fit: cover; 
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .col-md-3 {
+    display: flex;
+    flex: 1;
+  }
+  
+  .card.equal-height {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; 
+  }
+  
