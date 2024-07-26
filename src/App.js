@@ -12,7 +12,7 @@ import AdventureTrip from './AdventureTrip';
 import CityTours from './CityTours';
 import BookingForm from './BookingForm';
 import Contact from './Contact';
-import InternationalTour from './InternationalTour'; 
+import InternationalTour from './InternationalTour';
 
 const App = () => {
   return (
