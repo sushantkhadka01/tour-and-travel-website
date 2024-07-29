@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from './Header'; 
 import './Home.css';
 import florenceImage from './assets/florence.jpg';
@@ -38,26 +39,25 @@ const Home = () => {
             <div className="destination-box">
               <img src={parisImage} alt="Paris" className="destination-image" />
               <h3>Paris, France</h3>
-              <p>Explore the city of love and its iconic landmarks.</p>
+              <Link to="/booking-form/paris-france" className="btn btn-primary">Book a Trip</Link>
             </div>
             <div className="destination-box">
               <img src={tokyoImage} alt="Tokyo" className="destination-image" />
               <h3>Tokyo, Japan</h3>
-              <p>Experience the vibrant culture and modern marvels of Tokyo.</p>
+              <Link to="/booking-form/tokyo-japan" className="btn btn-primary">Book a Trip</Link>
             </div>
             <div className="destination-box">
               <img src={newYorkImage} alt="New York" className="destination-image" />
               <h3>New York, USA</h3>
-              <p>Discover the bustling metropolis and its famous attractions.</p>
+              <Link to="/booking-form/new-york-usa" className="btn btn-primary">Book a Trip</Link>
             </div>
             <div className="destination-box">
               <img src={sydneyImage} alt="Sydney" className="destination-image" />
               <h3>Sydney, Australia</h3>
-              <p>Enjoy the stunning harbor and beautiful beaches of Sydney.</p>
+              <Link to="/booking-form/sydney-australia" className="btn btn-primary">Book a Trip</Link>
             </div>
           </div>
         </section>
-        
       </main>
       <footer className="footer">
         <p>&copy; 2024 My Travel and Tour Website. All rights reserved by Siuuu shant Khadka.</p>
