@@ -56,7 +56,7 @@ const InternationalTour = () => {
             <div className="card equal-height">
               <img src={bernabeu} className="card-img-top equal-image" alt="Bernabeu Stadium" />
               <div className="card-body">
-                <h5 className="card-title">Bernabeu Stadium, Spain</h5>
+                <h5 className="card-title">Santiago Bernabeu Stadium, Spain</h5>
                 <p className="card-text">Tour the home of Real Madrid football club.</p>
                 <button className="btn btn-primary" onClick={() => handleBookClick('Bernabeu-Stadium')}>Book a Trip</button>
               </div>
