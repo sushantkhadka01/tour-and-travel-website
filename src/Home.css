@@ -79,6 +79,9 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .destination-box:hover {
@@ -100,6 +103,11 @@
 .destination-box p {
   font-size: 1rem;
   color: #666;
+  flex-grow: 1;
+}
+
+.btn-primary {
+  margin-top: 10px;
 }
 
 .footer {
